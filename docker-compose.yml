@@ -21,13 +21,9 @@ services:
       - './services/frontend:/app'
       - '/app/node_modules'
     ports:
-      - 8081:8080
-
+      - 8080:8080
   db:
     image: postgres:15
-    restart: always
-    expose:
-      - "54321"
     environment:
       - POSTGRES_USER=botunia
       - POSTGRES_PASSWORD=botunia
@@ -35,7 +31,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     ports:
-      - "53421:5432"
+      - 5432:5432
 
 volumes:
   postgres_data:
